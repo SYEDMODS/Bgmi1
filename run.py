@@ -90,16 +90,16 @@ def record_command_logs(user_id, command, target=None, port=None, time=None):
         file.write(log_entry + "\n")
 
 
-@bot.message_handler(content_types=['error'])
-def welcome_start(message):
-    response = "Welcome to our chat!"
-    try:
-        bot.reply_to(message, response)
-    except telebot.apihelper.ApiTelegramException as e:
-        if e.error_code == 400 and e.description == 'Bad Request: message to be replied not found':
-            print(f"Error: Message to be replied not found. Skipping...")
-        else:
-            raise
+#@bot.message_handler(content_types=['error'])
+#def welcome_start(message):
+#    response = "Welcome to our chat!"
+#    try:
+#        bot.reply_to(message, response)
+#    except telebot.apihelper.ApiTelegramException as e:
+#        if e.error_code == 400 and e.description == 'Bad Request: message to be replied not found':
+#            print(f"Error: Message to be replied not found. Skipping...")
+#        else:
+#            raise
 
 
 @bot.message_handler(commands=['add'])
@@ -375,7 +375,7 @@ def welcome_plan(message):
     user_name = message.from_user.first_name
     response = f'''{user_name}, Hello User!:
 
-Vip :
+Vip ❤ :
 -> Attack Time : 180 (S)
 -> After Attack Limit : 1 Min
 -> Concurrents Attack : 300
